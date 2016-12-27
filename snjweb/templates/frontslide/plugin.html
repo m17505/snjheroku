@@ -1,0 +1,5 @@
+{% load thumbnail %}
+<div class="frontslide">
+    <img class="img-responsive" src="{% thumbnail instance.image 1920x1160 box=instance.normal_slide_crop crop detail %}" />
+    <div class="slide-caption-layer">{{ instance.text }}</div>
+</div>

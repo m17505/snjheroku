@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load cms_tags menu_tags %}
+
+
+{% block base_content %}
+<div class="container">
+  <ol class="breadcrumb">
+  {% show_breadcrumb 0 "menu/breadcrumb.html" 0 %}
+  </ol>
+  {% placeholder template_2_content %}
+  </div><!-- /.container -->
+{% endblock %}

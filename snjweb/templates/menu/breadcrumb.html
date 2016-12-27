@@ -1,0 +1,7 @@
+{% for ance in ancestors %}
+	{% if not forloop.last %}
+	<li class="breadcrumb-item"><a href="{{ ance.get_absolute_url }}">{{ ance.get_menu_title }}</a></li>
+	{% else %}
+	<li class="breadcrumb-item active"><a href="{{ ance.get_absolute_url }}">{{ ance.get_menu_title }}</a></li>
+	{% endif %}
+{% endfor %}

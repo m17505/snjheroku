@@ -1,4 +1,11 @@
 {% load thumbnail %}
-<img src="{% thumbnail instance.image 360x360 box=instance.cropping crop detail %}" />
-
-
+<figure class="feature-box black">
+  <img class="img-responsive" src="{% thumbnail instance.image 360x360 box=instance.cropping crop detail %}" />
+  <figcaption>
+    <h1>{{ instance.title }}</h1>
+    <p>
+      {{ instance.text }}
+    </p>
+    <a href="{{ instance.page_link.get_absolute_url }}">Read More</a>
+  </figcaption>
+</figure>

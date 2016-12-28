@@ -9,6 +9,27 @@ $(document).ready(function () {
     nextArrow: '<i class="fa fa-angle-right"></i>',
     prevArrow: '<i class="fa fa-angle-left"></i>',
     slide: '.frontslide',
+    /*responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 1008,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 800,
+          settings: "unslick"
+        }
+
+      ]*/
     });
 
     $('.front-slideshow').on('afterChange', function(event, slick, currentSlide){

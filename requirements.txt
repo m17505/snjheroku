@@ -10,3 +10,5 @@ djangocms-picture
 djangocms-teaser
 djangocms-link
 django-image-cropping
+django-storages
+boto

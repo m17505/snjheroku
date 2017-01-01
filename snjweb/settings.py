@@ -222,3 +222,5 @@ if not DEBUG:
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     AWS_S3_SECURE_URLS = True  # use http instead of https
     AWS_QUERYSTRING_AUTH = False  # don't add complex authentication-related query parameters for requests
+    S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+    STATIC_URL = S3_URL

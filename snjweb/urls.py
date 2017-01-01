@@ -9,4 +9,5 @@ urlpatterns = i18n_patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('cms.urls')),
     # url(r'^resolution/(?P<width>[-\w]+)/(?P<height>\w+)/$', 'resolution_to_session'),
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + \
+               static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -235,7 +235,8 @@ if not DEBUG:
 # MEDIA_URL = "/media/"
 
 #static media settings
-STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+BUCKET_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+STATIC_URL = BUCKET_URL + 'static/'
 MEDIA_URL = STATIC_URL + 'media/'
 STATICFILES_DIRS = ( os.path.join(BASE_DIR, "static"), )
 STATIC_ROOT = 'staticfiles'

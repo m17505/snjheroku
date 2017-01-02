@@ -238,7 +238,7 @@ if not DEBUG:
 BUCKET_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 STATIC_URL = BUCKET_URL + 'static/'
 MEDIA_URL = STATIC_URL + 'media/'
-STATICFILES_DIRS = ( os.path.join(BASE_DIR, "static"), )
+STATICFILES_DIRS = ( os.path.join(PROJECT_ROOT, "static"), )
 STATIC_ROOT = 'staticfiles'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 

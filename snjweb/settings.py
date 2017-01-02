@@ -209,6 +209,8 @@ CMS_ENABLE_UPDATE_CHECK = False
 IMAGE_CROPPING_BACKEND = 'image_cropping.backends.easy_thumbs.EasyThumbnailsBackend'
 IMAGE_CROPPING_BACKEND_PARAMS = {}
 
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
 if not DEBUG:
     AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
@@ -220,6 +222,7 @@ if not DEBUG:
     S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
     STATIC_URL = S3_URL + 'static/'
     MEDIA_URL = S3_URL + 'media/'
+    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 # if not DEBUG:
 #     DEFAULT_FILE_STORAGE = "storages.backends.s3boto.S3BotoStorage"

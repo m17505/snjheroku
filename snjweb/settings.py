@@ -227,18 +227,16 @@ if not DEBUG:
     AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "")
     AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "")
     AWS_QUERYSTRING_AUTH = False
-    AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com'
+    AWS_S3_SECURE_URLS = True  # use http instead of https
+    S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+    STATIC_URL = S3_URL + 'static/'
+    MEDIA_URL = S3_URL + 'media/'
+    STATICFILES_DIRS = ( os.path.join(PROJECT_ROOT, "static"), )
+    STATIC_ROOT = 'staticfiles'
+    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 # STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 # STATIC_URL = '/static/'
 # MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
 # MEDIA_URL = "/media/"
-
-#static media settings
-BUCKET_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-STATIC_URL = BUCKET_URL + 'static/'
-MEDIA_URL = STATIC_URL + 'media/'
-STATICFILES_DIRS = ( os.path.join(PROJECT_ROOT, "static"), )
-STATIC_ROOT = 'staticfiles'
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 

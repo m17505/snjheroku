@@ -1,4 +1,5 @@
 from snjweb.settings_base import *
+import dj_database_url
 
 DEBUG = False
 # Database

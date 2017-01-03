@@ -1,4 +1,4 @@
-from snjweb.settings_base import *
+from snjweb.settings import *
 
 DATABASES = {
     'default': {

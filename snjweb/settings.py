@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 import os
 import dj_database_url
+import custom_storages
 gettext = lambda s: s
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -211,7 +212,7 @@ if not DEBUG:
     # This is used by the `static` template tag from `static`, if you're using that. Or if anything else
     # refers directly to STATIC_URL. So it's safest to always set it.
     STATICFILES_LOCATION = 'static'
-    STATICFILES_STORAGE = 'snjweb.custom_storages.StaticStorage'
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 
     MEDIAFILES_LOCATION = 'media'

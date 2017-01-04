@@ -49,7 +49,6 @@ INSTALLED_APPS = (
     'featurebox',
     'frontslide',
     'storages',
-    'nnstorages',
 )
 
 MIDDLEWARE_CLASSES = [
@@ -216,12 +215,13 @@ if not DEBUG:
     # This is used by the `static` template tag from `static`, if you're using that. Or if anything else
     # refers directly to STATIC_URL. So it's safest to always set it.
     STATICFILES_LOCATION = 'static'
-    STATICFILES_STORAGE = 'nnstorages.custom_storages.StaticStorage'
+    STATICFILES_STORAGE = 'snjweb.s3utils.StaticStorage'
     STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 
     MEDIAFILES_LOCATION = 'media'
     MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-    DEFAULT_FILE_STORAGE = 'nnstorages.custom_storages.MediaStorage'
+    DEFAULT_FILE_STORAGE = 'snjweb.s3utils.MediaStorage'
+
     # S3_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
     # STATIC_URL = S3_URL + 'static/'
     # MEDIA_URL = S3_URL + 'media/'

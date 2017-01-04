@@ -197,6 +197,9 @@ if not DEBUG:
     STATICFILES_DIRS = (
         os.path.join(PROJECT_ROOT, 'static'),
     )
+    STATIC_URL = '/static/'
+    MEDIA_URL = '/media/'
+    ADMIN_MEDIA_PREFIX = '/admin/'
 
     AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'

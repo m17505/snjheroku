@@ -1,5 +1,5 @@
 # custom_storages.py
-from django.conf import settings
+from snjweb import settings
 from storages.backends.s3boto import S3BotoStorage
 
 

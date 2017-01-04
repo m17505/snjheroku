@@ -1,10 +1,10 @@
 # custom_storages.py
-from snjweb import settings
+from snjweb.settings import *
 from storages.backends.s3boto import S3BotoStorage
 
 
 class StaticStorage(S3BotoStorage):
-    location = settings.STATICFILES_LOCATION
+    location = STATICFILES_LOCATION
 
 class MediaStorage(S3BotoStorage):
-    location = settings.MEDIAFILES_LOCATION
+    location = MEDIAFILES_LOCATION

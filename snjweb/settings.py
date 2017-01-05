@@ -24,6 +24,7 @@ if not DEBUG:
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_SECURE_URLS = True  # use http instead of https
     AWS_QUERYSTRING_AUTH = False  # don't add complex authentication-related query parameters for requests
+    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
 
 # Application definition
@@ -189,7 +190,7 @@ if not DEBUG:
         os.path.join(PROJECT_ROOT, 'static'),
     )
 
-    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % os.environ.get('AWS_STORAGE_BUCKET_NAME')
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
     STATICFILES_LOCATION = 'static'
     STATICFILES_STORAGE = 'snjweb.s3utils.StaticRootS3BotoStorage'

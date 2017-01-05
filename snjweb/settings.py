@@ -25,6 +25,7 @@ if not DEBUG:
     AWS_S3_SECURE_URLS = True  # use http instead of https
     AWS_QUERYSTRING_AUTH = False  # don't add complex authentication-related query parameters for requests
     AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+    AWS_PRELOAD_METADATA = True
 
 
 # Application definition

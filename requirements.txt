@@ -12,3 +12,4 @@ djangocms-link
 django-image-cropping
 django-storages
 boto
+easy_thumbnails==dev

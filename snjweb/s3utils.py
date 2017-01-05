@@ -1,3 +1,4 @@
+import os
 from storages.backends.s3boto import S3BotoStorage
 
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']

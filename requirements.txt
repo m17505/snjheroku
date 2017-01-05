@@ -9,7 +9,7 @@ djangocms-file
 djangocms-picture
 djangocms-teaser
 djangocms-link
-django-image-cropping-amazon-s3==0.0.18
+django-image-cropping
 django-storages
 boto
 easy_thumbnails==2.3

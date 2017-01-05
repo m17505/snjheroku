@@ -182,8 +182,7 @@ if not DEBUG:
     }
 
     # Update database configuration with $DATABASE_URL.
-
-    db_from_env = dj_database_url.config(conn_max_age=500)
+    db_from_env = dj_database_url.config(conn_max_age=00)
     DATABASES['default'].update(db_from_env)
 
     SITE_ID = 1
@@ -202,3 +201,4 @@ if not DEBUG:
     MEDIAFILES_LOCATION = 'media'
     MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
     DEFAULT_FILE_STORAGE = 'snjweb.s3utils.MediaRootS3BotoStorage'
+    THUMBNAIL_DEFAULT_STORAGE = 'snjweb.s3utils.MediaRootS3BotoStorage'

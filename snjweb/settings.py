@@ -19,9 +19,9 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 DEBUG = False
 if not DEBUG:
-    SECRET_KEY = os.environ['SECRET_KEY']
-    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_SECURE_URLS = True  # use http instead of https
     AWS_QUERYSTRING_AUTH = False  # don't add complex authentication-related query parameters for requests
 
@@ -169,10 +169,10 @@ if not DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': os.environ['DB_NAME'],
-            'USER': os.environ['DB_USER'],
-            'PASSWORD': os.environ['DB_PASSWORD'],
-            'HOST': os.environ['DB_HOST'],
+            'NAME': os.environ.get('DB_NAME'),
+            'USER': os.environ.get('DB_USER'),
+            'PASSWORD': os.environ.get('DB_PASSWORD'),
+            'HOST': os.environ.get('DB_HOST'),
             'PORT': '5432',
         }
     }
@@ -189,7 +189,7 @@ if not DEBUG:
         os.path.join(PROJECT_ROOT, 'static'),
     )
 
-    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % os.environ['AWS_STORAGE_BUCKET_NAME']
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
     STATICFILES_LOCATION = 'static'
     STATICFILES_STORAGE = 'snjweb.s3utils.StaticRootS3BotoStorage'

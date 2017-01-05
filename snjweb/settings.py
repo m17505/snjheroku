@@ -12,20 +12,18 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 import os
 import dj_database_url
-from s3utils import *
 gettext = lambda s: s
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
-
-# SECURITY WARNING: change this before deploying to production!
-SECRET_KEY = os.environ['SECRET_KEY']
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+if not DEBUG:
+    SECRET_KEY = os.environ['SECRET_KEY']
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    AWS_S3_SECURE_URLS = True  # use http instead of https
+    AWS_QUERYSTRING_AUTH = False  # don't add complex authentication-related query parameters for requests
 
 
 # Application definition
@@ -94,9 +92,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'snjweb.wsgi.application'
 
 
-# Password validation
-# https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -125,12 +120,7 @@ USE_TZ = True
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-# Allow all host headers
 ALLOWED_HOSTS = ['*']
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
-
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -199,18 +189,8 @@ if not DEBUG:
         os.path.join(PROJECT_ROOT, 'static'),
     )
 
-    # STATIC_URL = '/static/'
-    # MEDIA_URL = '/media/'
-    # ADMIN_MEDIA_PREFIX = '/admin/'
-    #
-    # AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-    # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    # STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-
     AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % os.environ['AWS_STORAGE_BUCKET_NAME']
 
-    # This is used by the `static` template tag from `static`, if you're using that. Or if anything else
-    # refers directly to STATIC_URL. So it's safest to always set it.
     STATICFILES_LOCATION = 'static'
     STATICFILES_STORAGE = 'snjweb.s3utils.StaticRootS3BotoStorage'
     STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
@@ -218,8 +198,3 @@ if not DEBUG:
     MEDIAFILES_LOCATION = 'media'
     MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
     DEFAULT_FILE_STORAGE = 'snjweb.s3utils.MediaRootS3BotoStorage'
-
-    # S3_URL = 'https://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-    # STATIC_URL = S3_URL + 'static/'
-    # MEDIA_URL = S3_URL + 'media/'
-    # ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'

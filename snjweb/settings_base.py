@@ -17,7 +17,7 @@ gettext = lambda s: s
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-DEBUG = False
+DEBUG = True
 if not DEBUG:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
@@ -182,7 +182,7 @@ if not DEBUG:
     }
 
     # Update database configuration with $DATABASE_URL.
-    db_from_env = dj_database_url.config(conn_max_age=00)
+    db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
 
     SITE_ID = 1

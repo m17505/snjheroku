@@ -1,4 +1,6 @@
-from snjweb.settings import *
+from snjweb.settings_base import *
+
+SECRET_KEY = 'snjwebcguxmt0bufha!um8cl=60nx63t(rshsx67bvq1jzl_78^l=51e'
 
 DATABASES = {
     'default': {

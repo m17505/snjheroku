@@ -6,7 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 2.7.12 virtualenv at C:\Users\m17505\git\snjheroku\venv" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6.0 virtualenv at C:\Users\electricblue\git\snjheroku\venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">

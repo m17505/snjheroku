@@ -1,14 +1,19 @@
 # -*- coding: utf-8 -*-
 from snjweb.settings_base import *
 
-SECRET_KEY = 'snjwebcguxmt0bufha!um8cl=60nx63t(rshsx67bvq1jzl_78^l=51e'
+SECRET_KEY = os.environ.get('SECRET')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'snjdb',
+        'USER': 'snjdb',
+        'PASSWORD': os.environ.get('DB_PASS'),
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
 

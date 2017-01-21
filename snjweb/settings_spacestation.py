@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 from snjweb.settings_base import *
 
-SECRET_KEY = os.environ.get('SECRET')
+SECRET_KEY = os.environ.get('SNJ_SECRET')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'snjdb',
         'USER': 'snjdb',
-        'PASSWORD': os.environ.get('DB_PASS'),
+        'PASSWORD': os.environ.get('SNJ_DB_PASS'),
         'HOST': 'localhost',
         'PORT': '5432',
     }

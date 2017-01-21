@@ -159,5 +159,3 @@ THUMBNAIL_PROCESSORS = (
 CMS_ENABLE_UPDATE_CHECK = False
 IMAGE_CROPPING_BACKEND = 'image_cropping.backends.easy_thumbs.EasyThumbnailsBackend'
 IMAGE_CROPPING_BACKEND_PARAMS = {}
-
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
